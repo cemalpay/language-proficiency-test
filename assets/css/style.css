@@ -1,0 +1,741 @@
+.lpt-test-container {
+  max-width: 800px !important;
+  margin: 2em auto !important;
+  padding: 2em !important;
+  background: #fff !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 5px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.lpt-section {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#lpt-student-info {
+  display: block !important;
+}
+
+#lpt-student-info.active {
+  display: block !important;
+}
+
+#lpt-test-questions {
+  display: none !important;
+}
+
+#lpt-test-questions.active {
+  display: block !important;
+}
+
+/* Öğrenci Bilgi Formu */
+.lpt-form {
+  background: #f9f9f9 !important;
+  padding: 25px !important;
+  border-radius: 5px !important;
+  border: 1px solid #e5e5e5 !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+.lpt-form .form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.lpt-form .form-group {
+  flex: 1 !important;
+  margin-bottom: 20px !important;
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+/* Dil öğrenme amacı form grubu */
+.lpt-form .form-group:has(#learning_purpose) {
+  z-index: 10 !important;
+}
+
+select#learning_purpose {
+  position: relative !important;
+  z-index: 10 !important;
+  background-color: #fff !important;
+}
+
+/* Form Label Stilleri */
+.form-label {
+  display: block !important;
+  margin-bottom: 8px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  width: 100% !important;
+  position: relative !important;
+  text-align: left !important;
+}
+
+.form-label.purpose-label {
+  color: #1a1a1a !important;
+  font-size: 15px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Eski label stillerini kaldır */
+.lpt-form label {
+  display: none !important;
+}
+
+/* Select List Düzeltmeleri */
+.lpt-form select,
+.purpose-select {
+  width: 100% !important;
+  padding: 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  background-color: #fff !important;
+  height: auto !important;
+  appearance: auto !important;
+  -webkit-appearance: auto !important;
+  -moz-appearance: auto !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  color: #475569 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  padding-right: 40px !important;
+}
+
+.lpt-form select:hover,
+.purpose-select:hover {
+  border-color: #2563eb !important;
+  background-color: #f8fafc !important;
+}
+
+.lpt-form select:focus,
+.purpose-select:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1) !important;
+  outline: none !important;
+}
+
+.lpt-form select option,
+.purpose-select option {
+  padding: 12px !important;
+  font-size: 14px !important;
+  color: #475569 !important;
+  background-color: #fff !important;
+}
+
+.lpt-form select option:hover,
+.purpose-select option:hover {
+  background-color: #f8fafc !important;
+}
+
+/* Input Alanları */
+.lpt-form input[type="text"],
+.lpt-form input[type="email"],
+.lpt-form input[type="tel"] {
+  width: 100% !important;
+  padding: 8px 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  margin: 0 !important;
+  height: auto !important;
+  line-height: normal !important;
+}
+
+.lpt-form input[type="text"]:focus,
+.lpt-form input[type="email"]:focus,
+.lpt-form input[type="tel"]:focus {
+  border-color: #2271b1;
+  box-shadow: 0 0 0 1px #2271b1;
+  outline: none;
+}
+
+/* Test Soruları - Modern Tasarım */
+.lpt-question {
+  margin-bottom: 2em !important;
+  padding: 2em !important;
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  border: 1px solid #e5e5e5 !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.lpt-question:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.lpt-question h3 {
+  margin-top: 0 !important;
+  margin-bottom: 1.5em !important;
+  color: #2c3e50 !important;
+  font-size: 1.3em !important;
+  line-height: 1.4 !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  gap: 15px !important;
+}
+
+.question-number {
+  color: #3498db !important;
+  font-weight: 700 !important;
+  min-width: 28px !important;
+}
+
+/* Modern Seçenek Tasarımı */
+.option-label {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0.8em 0 !important;
+  padding: 0.8em 1em !important;
+  background: #f8fafc !important;
+  border: 1px solid #edf2f7 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+}
+
+.option-label:hover {
+  background: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  transform: translateX(3px) !important;
+}
+
+.option-label input[type="radio"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  border: 2px solid #cbd5e1 !important;
+  border-radius: 50% !important;
+  margin-right: 12px !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.option-label input[type="radio"]:checked {
+  border-color: #2563eb !important;
+  background: #2563eb !important;
+}
+
+.option-label input[type="radio"]:checked::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 6px !important;
+  height: 6px !important;
+  background: white !important;
+  border-radius: 50% !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.option-text {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex: 1 !important;
+  font-size: 0.95em !important;
+  color: #475569 !important;
+}
+
+.option-letter {
+  color: #64748b !important;
+  font-weight: 600 !important;
+  font-size: 0.9em !important;
+  min-width: 20px !important;
+}
+
+.option-content {
+  flex: 1 !important;
+}
+
+.option-label.selected {
+  background: #eff6ff !important;
+  border-color: #2563eb !important;
+}
+
+.option-label.selected .option-text {
+  color: #1e40af !important;
+}
+
+.option-label.selected .option-letter {
+  color: #2563eb !important;
+}
+
+.option-label.selected input[type="radio"] {
+  border-color: #2563eb !important;
+  background: #2563eb !important;
+}
+
+/* Hover efektleri */
+.option-label:hover input[type="radio"] {
+  border-color: #3b82f6 !important;
+}
+
+.option-label:hover .option-text {
+  color: #1e40af !important;
+}
+
+.option-label:hover .option-letter {
+  color: #3b82f6 !important;
+}
+
+/* Buton Tasarımları */
+.button.button-primary,
+#start-test-btn,
+#submit-test-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 14px 36px !important;
+  background: #ffc904 !important;
+  color: #1a1a1a !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(255, 201, 4, 0.2) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.button.button-primary:hover,
+#start-test-btn:hover,
+#submit-test-btn:hover {
+  background: #ffd234 !important;
+  box-shadow: 0 6px 12px rgba(255, 201, 4, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+.button.button-primary:active,
+#start-test-btn:active,
+#submit-test-btn:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 4px rgba(255, 201, 4, 0.2) !important;
+}
+
+#submit-test-btn:disabled {
+  background: #e5e7eb !important;
+  color: #9ca3af !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Progress Bar */
+.test-progress {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  padding: 1em;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 2em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100% !important;
+  background: linear-gradient(45deg, #ffc904, #ffd234) !important;
+  width: 0 !important;
+  transition: width 0.3s ease !important;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .lpt-test-container {
+    padding: 10px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+  }
+
+  .lpt-question {
+    padding: 15px !important;
+    margin-bottom: 15px !important;
+    box-shadow: none !important;
+    border: 1px solid #e5e5e5 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .lpt-question:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .option-label {
+    padding: 10px !important;
+    margin: 8px 0 !important;
+    background: #ffffff !important;
+    border: 1px solid #e5e5e5 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .option-label:hover {
+    transform: none !important;
+    background: #f8f8f8 !important;
+  }
+
+  .option-label.selected {
+    background: #f0f7ff !important;
+    border-color: #2563eb !important;
+  }
+
+  .lpt-form {
+    padding: 15px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .form-group {
+    margin-bottom: 15px !important;
+  }
+
+  .form-label {
+    font-size: 14px !important;
+    margin-bottom: 5px !important;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    height: 40px !important;
+    padding: 8px !important;
+    font-size: 14px !important;
+  }
+
+  .button.button-primary,
+  #start-test-btn,
+  #submit-test-btn {
+    width: 100% !important;
+    padding: 12px !important;
+    font-size: 16px !important;
+    margin: 10px 0 !important;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+
+  .button.button-primary:hover,
+  #start-test-btn:hover,
+  #submit-test-btn:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Küçük mobil cihazlar için ek optimizasyonlar */
+@media (max-width: 480px) {
+  .lpt-test-container {
+    padding: 8px !important;
+  }
+
+  .lpt-question {
+    padding: 12px !important;
+  }
+
+  .option-label {
+    padding: 8px !important;
+  }
+
+  .form-label {
+    font-size: 13px !important;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    font-size: 13px !important;
+  }
+}
+
+/* Sonuç Ekranı */
+#lpt-result {
+  margin-top: 2em !important;
+  padding: 2.5em !important;
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  text-align: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.lpt-result-message {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+#lpt-result::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 6px !important;
+  background: linear-gradient(90deg, #ffc904 0%, #ffd234 100%) !important;
+}
+
+#lpt-result h3 {
+  font-size: 24px !important;
+  color: #1a1a1a !important;
+  margin-bottom: 20px !important;
+  font-weight: 600 !important;
+}
+
+.result-level {
+  display: inline-block !important;
+  font-size: 48px !important;
+  font-weight: 700 !important;
+  color: #ffc904 !important;
+  margin: 20px 0 !important;
+  padding: 10px 30px !important;
+  border-radius: 50px !important;
+  background: rgba(255, 201, 4, 0.1) !important;
+  box-shadow: 0 4px 15px rgba(255, 201, 4, 0.2) !important;
+}
+
+.result-score {
+  font-size: 18px !important;
+  color: #475569 !important;
+  margin: 15px 0 25px !important;
+}
+
+.result-message {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  color: #1a1a1a !important;
+  margin-bottom: 25px !important;
+}
+
+.result-additional {
+  margin-top: 30px !important;
+  padding: 25px !important;
+  border-top: 1px solid #e5e7eb !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: #374151 !important;
+  background: #f8fafc !important;
+  border-radius: 12px !important;
+  text-align: left !important;
+}
+
+.result-additional a.result-cta {
+  display: inline-block !important;
+  padding: 14px 28px !important;
+  background: #ffc904 !important;
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  margin-top: 20px !important;
+  text-align: center !important;
+  box-shadow: 0 4px 6px rgba(255, 201, 4, 0.2) !important;
+}
+
+.result-additional a.result-cta:hover {
+  background: #ffd234 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(255, 201, 4, 0.3) !important;
+}
+
+@media (max-width: 768px) {
+  #lpt-result {
+    padding: 1.5em !important;
+  }
+
+  .result-level {
+    font-size: 36px !important;
+    padding: 8px 24px !important;
+  }
+
+  .result-score {
+    font-size: 16px !important;
+  }
+
+  .result-additional {
+    padding: 20px !important;
+    font-size: 14px !important;
+  }
+
+  .result-additional a.result-cta {
+    padding: 12px 24px !important;
+    font-size: 14px !important;
+    width: 100% !important;
+  }
+}
+
+.option-row {
+  margin-bottom: 10px;
+}
+
+.option-row input {
+  margin-right: 10px;
+}
+
+.remove-option {
+  color: #dc3232;
+}
+
+/* Admin Styles */
+.questions-section,
+.results-section {
+  margin-top: 2em;
+}
+
+.form-table td {
+  vertical-align: top;
+}
+
+#options-container {
+  margin-bottom: 1em;
+}
+
+.wp-list-table th {
+  font-weight: 600;
+}
+
+.wp-list-table td {
+  vertical-align: middle;
+}
+
+.wp-list-table .button {
+  margin-right: 5px;
+}
+
+/* Dil Öğrenme Amacı */
+.purpose-options,
+.purpose-option {
+  display: none !important;
+}
+
+/* KVKK Onayı */
+.kvkk-row {
+  margin-top: 2em !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+.kvkk-label {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+.kvkk-label input[type="checkbox"] {
+  width: 16px !important;
+  height: 16px !important;
+  border: 2px solid #cbd5e1 !important;
+  border-radius: 4px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+  max-width: 40px !important;
+  min-width: 16px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.kvkk-label input[type="checkbox"]:checked {
+  border-color: #ffc904 !important;
+  background: #ffc904 !important;
+}
+
+.kvkk-label input[type="checkbox"]:checked::after {
+  content: "✓" !important;
+  position: absolute !important;
+  color: white !important;
+  font-size: 12px !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.kvkk-label span {
+  font-size: 0.9em !important;
+  color: #475569 !important;
+  flex: 1 !important;
+  line-height: 1.4 !important;
+  display: block !important;
+  text-align: left !important;
+}
+
+.kvkk-link {
+  display: block !important;
+  margin-top: 8px !important;
+  font-size: 0.85em !important;
+  color: #2563eb !important;
+  text-decoration: underline !important;
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+  .purpose-option {
+    padding: 10px !important;
+  }
+
+  .purpose-option span {
+    font-size: 0.9em !important;
+  }
+
+  .kvkk-label span {
+    font-size: 0.85em !important;
+  }
+}
+
+/* Form başlığı */
+.lpt-test-container h2 {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: #1a1a1a !important;
+  margin-bottom: 25px !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+/* Form actions */
+.form-actions {
+  margin-top: 30px !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
