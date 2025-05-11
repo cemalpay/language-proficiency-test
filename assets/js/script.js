@@ -171,6 +171,127 @@ var LPTTest = {
 
       // İlk yüklemede ilerlemeyi göster
       updateProgress();
+
+      // Form input ve select elementlerine focus efektleri
+      $(".lpt-form input, .lpt-form select")
+        .on("focus", function () {
+          $(this).css({
+            "border-color": "#ffc904",
+            "box-shadow": "0 0 0 3px rgba(255, 201, 4, 0.1)",
+            "background-color": "#ffffff",
+          });
+        })
+        .on("blur", function () {
+          $(this).css({
+            "border-color": "#e2e8f0",
+            "box-shadow": "none",
+            "background-color": "#ffffff",
+          });
+        });
+
+      // Seçenek hover efektleri
+      $(".option-label").hover(
+        function () {
+          $(this).css({
+            transform: "translateX(8px)",
+            "border-color": "#ffc904",
+            background: "rgba(255, 201, 4, 0.05)",
+          });
+          $(this).find(".option-letter").css("color", "#ffc904");
+        },
+        function () {
+          if (!$(this).find("input[type='radio']").is(":checked")) {
+            $(this).css({
+              transform: "translateX(0)",
+              "border-color": "#e2e8f0",
+              background: "#f8fafc",
+            });
+            $(this).find(".option-letter").css("color", "#64748b");
+          }
+        }
+      );
+
+      // Radio button seçim efektleri
+      $(".option-label input[type='radio']").on("change", function () {
+        // Tüm seçenekleri resetle
+        $(this)
+          .closest(".lpt-question")
+          .find(".option-label")
+          .css({
+            transform: "translateX(0)",
+            "border-color": "#e2e8f0",
+            background: "#f8fafc",
+          })
+          .find(".option-letter")
+          .css("color", "#64748b");
+
+        // Seçili seçeneği güncelle
+        if ($(this).is(":checked")) {
+          $(this)
+            .closest(".option-label")
+            .css({
+              transform: "translateX(8px)",
+              "border-color": "#ffc904",
+              background: "rgba(255, 201, 4, 0.05)",
+            })
+            .find(".option-letter")
+            .css("color", "#ffc904");
+
+          // Radio button stilini güncelle
+          $(this).css({
+            "border-color": "#ffc904",
+            background: "#ffc904",
+          });
+
+          // Checkmark ekle
+          if (!$(this).next(".radio-checkmark").length) {
+            $(this).after(
+              '<span class="radio-checkmark" style="content: \'\'; position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; background: white; border-radius: 50%; transform: translate(-50%, -50%);"></span>'
+            );
+          }
+        }
+      });
+
+      // KVKK checkbox özel stilleri
+      $("#kvkk_approval").on("change", function () {
+        if ($(this).is(":checked")) {
+          $(this).css({
+            "border-color": "#ffc904",
+            "background-color": "#ffc904",
+          });
+
+          // Tik işareti ekle
+          if (!$(this).next(".checkmark").length) {
+            $(this).after(
+              '<span class="checkmark" style="content: \'\'; position: absolute; top: 6px; left: 7px; width: 6px; height: 10px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg);"></span>'
+            );
+          }
+        } else {
+          $(this).css({
+            "border-color": "#cbd5e1",
+            "background-color": "transparent",
+          });
+
+          // Tik işaretini kaldır
+          $(this).next(".checkmark").remove();
+        }
+      });
+
+      // Buton hover efektleri
+      $(".button-primary").hover(
+        function () {
+          $(this).css({
+            transform: "translateY(-2px)",
+            "box-shadow": "0 12px 24px rgba(255, 201, 4, 0.25)",
+          });
+        },
+        function () {
+          $(this).css({
+            transform: "translateY(0)",
+            "box-shadow": "0 8px 16px rgba(255, 201, 4, 0.2)",
+          });
+        }
+      );
     });
   },
 
